@@ -11,15 +11,15 @@ const layout = () => {
       <div className="container__navbar">
         <Navbar2 />
       </div>
-      <div className="container__home">
-        {/* <Home /> */}
-        {/* <Outlet /> */}
+      {/* <div className="container__home">
+        <Home />
+        <Outlet />
       </div>
 
       
       <div className="container__footer">
         <Footer />
-      </div>
+      </div> */}
     </>
   );
 }; 
