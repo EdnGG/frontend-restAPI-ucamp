@@ -5,14 +5,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import * as bootstrap from "bootstrap"; // Linea importante para componentres de bootstrap
 import { BrowserRouter } from "react-router-dom";
 import App from './App';
+import { UserProvider } from './context/UserContext';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <UserProvider>
     <BrowserRouter>
       <App />
-    </BrowserRouter>
+      </BrowserRouter>
+    </UserProvider>
   </React.StrictMode>
 );
 

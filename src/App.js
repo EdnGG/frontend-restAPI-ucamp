@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import SignIn from "./pages/SignIn";
 import NotFound from "./pages/NotFound";
 import Guitars from "./pages/Guitars";
+import Main from "./components/Main";
  
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} /> 
           <Route path="/signin" element={<SignIn />} /> 
-          <Route path="/guitars" element={<Guitars />} /> 
+          <Route path="/guitars" element={<Main />} /> 
           <Route path="/guitar/:id" element={<Guitars />} />
           <Route path="*" element={<NotFound />} />
         </Route>
