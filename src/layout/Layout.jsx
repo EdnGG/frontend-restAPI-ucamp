@@ -1,27 +1,35 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import Navbar2 from "../components/Navbar";
-import Footer from "../components/Footer";
-import Home from "../pages/Home"
+// import Button from 'react-bootstrap/Button';
+// import Container from 'react-bootstrap/Container';
+// import Form from 'react-bootstrap/Form';
+// import Nav from 'react-bootstrap/Nav';
+// import Navbar from 'react-bootstrap/Navbar';
 
 
-const layout = () => {
+const Layout = () => {
   return (
-    <>
-      <div className="container__navbar">
-        <Navbar2 />
-      </div>
-      {/* <div className="container__home">
-        <Home />
-        <Outlet />
-      </div>
-
+    <div>
+    <nav>
+      <ul> 
+        <li>
+          <Link to="/home">Home</Link>
+        </li>
+        <li>
+          <Link to="/signin">SignIn</Link>
+        </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+        <li>
+          <Link to="/guitars">Guitars</Link>
+        </li>
+      </ul>
+    </nav>
+    <Outlet />
+  </div>
       
-      <div className="container__footer">
-        <Footer />
-      </div> */}
-    </>
   );
 }; 
 
-export default layout;
+export default Layout;
