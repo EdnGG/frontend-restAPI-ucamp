@@ -5,7 +5,7 @@ function Header() {
     <div className="">
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container">
-          <img src="https://picsum.photos/50/50?grayscale" alt="Brand" />
+          <img src="https://picsum.photos/50/50?grayscale" className="rounded" alt="Brand" />
           <Link className="px-2 navbar-brand w-45 justify-content-start" to="/">GUITARWORLD</Link>
           <Link className="nav-link active p-3" aria-current="page" to="/guitars">Catalog</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
