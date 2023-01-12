@@ -1,8 +1,24 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 const SignIn = () => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+  const user = {
+    name,
+    email,
+    password,
+    confirmPassword
+  }
+
+  const handleSubmit = (e) => { 
+    e.preventDefault()
+    console.log(user )
+  }
   return (
-    <div className="container">
+    <div className="container w-40">
       <div>
         <h1>Sign In</h1>
       </div>
@@ -32,7 +48,7 @@ const SignIn = () => {
     </div>
   </div>
  
-  <button type="submit" className="btn btn-primary">Sign in</button>
+  <button type="submit" onClick={ ()=> handleSubmit } className="btn btn-primary">Sign in</button>
       </form>
       </div>
   )
