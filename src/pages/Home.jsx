@@ -1,14 +1,10 @@
 import React from 'react'
+import '../styles/Home.css'
 
 const Home = () => {
   return (
-    <div className="jumbotron">
-      <img className="h-full w-full object-cover rounded"
-        src="https://picsum.photos/500/500?grayscale"
-        alt="Guitarras para todo el público">
-        
+    <div className="container__image">
       
-      </img>
       <h1 className="display-4">Hello, world!</h1>
       <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
       <hr className="my-4"></hr>

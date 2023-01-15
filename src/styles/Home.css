@@ -1,0 +1,19 @@
+.container__image{
+  background-image: url(https://picsum.photos/600/600);
+  width: 100vh;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 50px;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 50px;;
+
+
+}

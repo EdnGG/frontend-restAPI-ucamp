@@ -16,9 +16,7 @@ function Header() {
           <div className="navbar-nav m-2 justify-content-start w-100">
               {/* <Link className="nav-link active p-3" aria-current="page" to="/guitars">Catalog</Link> */}
               
-            {/* <Link className="nav-link p-3" to="/DFSFDS">USD</Link>
-            <Link className="nav-link p-3" to="/login">Login</Link>
-            <Link className="nav-link p-3 " to="/signin">Sign In</Link> */}
+           
               
             </div>
             <div className="d-flex justify-content-end w-100">
