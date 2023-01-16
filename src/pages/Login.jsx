@@ -23,7 +23,7 @@ const Login = () => {
       <div className="pt-3 mt-3 w-20">
         <h1>Login</h1>
       </div>
-      <form onSubmit={ handleSubmit } className="pt-3 mt-3 w-20">
+      <form onSubmit={ handleSubmit } className="py-3 my-3 px-3 mx-3 w-20 border border-2">
       
   <div className="row mb-3">
     <label for="inputEmail" className="col-sm-2 col-form-label">Email</label>
