@@ -8,7 +8,10 @@ const Login = () => {
 
   const sendData = (event) => {
     event.preventDefault();
-    loginUser(formData);
+    if (loginUser(formData)) {
+      alert("Login successful");
+    }
+    return;
   };
 
   return (

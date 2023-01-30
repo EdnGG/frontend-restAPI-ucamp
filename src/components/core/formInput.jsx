@@ -1,16 +1,16 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../../context/UserContext'
+import React, { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 const formInput = ({ tipo }) => {
-  const userCtx = useContext(UserContext)
+  const userCtx = useContext(UserContext);
 
-  const { handleChange } = userCtx
+  const { handleChange } = userCtx;
 
   const options = {
     name: { title: "Username", type: "text", placeholder: "Name" },
     email: { title: "Email", type: "email", placeholder: "Email" },
     password: { title: "Password", type: "password", placeholder: "Password" },
-  }
+  };
   return (
     <>
       <label htmlFor="{tipo}">{options[tipo].title}</label>
@@ -21,11 +21,11 @@ const formInput = ({ tipo }) => {
           type={options[tipo].type}
           placeholder={options[tipo].placeholder}
           required
-          onChange={(e)=> handleChange(e)}
+          onChange={(e) => handleChange(e)}
         />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default formInput
+export default formInput;

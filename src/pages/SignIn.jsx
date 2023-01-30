@@ -8,7 +8,10 @@ const SignIn = () => {
 
   const sendData = (event) => {
     event.preventDefault();
-    registerUser(formData);
+    if (registerUser(formData)) {
+      alert("Sign In successful");
+    }
+    return;
   };
 
   return (

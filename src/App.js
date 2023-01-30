@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import SignIn from "./pages/SignIn";
 import NotFound from "./pages/NotFound";
 import Guitars from "./pages/Guitars";
-import Main from "./components/Main";
+import Profile from "./pages/Profile";
 import Paypal from "./components/Paypal";
 import PrivateRoute from "./components/auth/PrivateRoute";
 
@@ -17,11 +17,12 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/user/login" element={<Login />} />
-          <Route path="/user/signin" element={<SignIn />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signin" element={<SignIn />} />
           <Route path="/guitars" element={<Guitars />} />
-          <Route path="/paypal" element={<Paypal />} />
           <Route element={<PrivateRoute />}>
+            <Route path="/paypal" element={<Paypal />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/guitar/:id" element={<Guitars />} />
           </Route>
           <Route path="*" element={<NotFound />} />
