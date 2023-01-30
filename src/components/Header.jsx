@@ -15,7 +15,7 @@ function Header() {
           <img
             src="https://picsum.photos/100/100?grayscale"
             className="rounded"
-            alt="Brand"
+            alt="Brand new guitar"
           />
           <Link className="px-2 navbar-brand" to="/">
             GUITARWORLD
