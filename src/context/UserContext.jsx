@@ -1,5 +1,8 @@
 import { useState, createContext } from "react";
 import clientAxios from "../components/config/axios.js";
+// import { useNavigate } from "react-router-dom";
+
+// const navigate = useNavigate();
 
 export const UserContext = createContext();
 
@@ -43,25 +46,31 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const registerUser = async (dataForm) => {
+  const registerUser = async (dataForm, navigate) => {
+    // const navigate = useNavigate();
     try {
       console.log(`DataForm: ${dataForm}`);
       const res = await clientAxios.post("/user/signup", dataForm);
-      // console
       localStorage.setItem("token", res.data.token);
       setAuthStatus(true);
+      navigate("/profile");
+      // return true;
     } catch (err) {
       console.log(err.message);
     }
   };
 
-  const loginUser = async (dataForm) => {
+  const loginUser = async (dataForm, navigate) => {
+    // debugger;
+    // const navigate = useNavigate();
     try {
       console.log(`DataForm: ${dataForm}`);
-      const res = await clientAxios.post("/user/login", dataForm);
+      await clientAxios.post("/user/login", dataForm).then((response) => {
+        localStorage.setItem("token", response.data.token);
+        setAuthStatus(true);
+        navigate("/profile");
+      });
       // console.log(res.data);
-      localStorage.setItem("token", res.data.token);
-      setAuthStatus(true);
     } catch (err) {
       console.log(err.message);
     }

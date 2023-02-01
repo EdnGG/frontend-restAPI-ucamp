@@ -42,24 +42,6 @@ function Header() {
             className="collapse navbar-collapse justify-content-end"
             id="navbarNavAltMarkup"
           >
-            {/* <Link className="nav-link p-3" to="/paypal">
-              CheckOut
-            </Link> */}
-            {/* <Link className="nav-link p-3" to="/login">
-              Login
-            </Link> */}
-            {/* <Link className="nav-link p-3" to="/login">
-              Logout
-            </Link> */}
-            {/* <Link className="nav-link p-3 " to="/signin">
-              Sign In
-            </Link>
-            <Link className="nav-link p-3" to="/profile">
-              Profile
-            </Link> */}
-
-            {/* Checar esta logica */}
-
             {authStatus ? (
               <>
                 <Link className="nav-link p-3" to="/profile">

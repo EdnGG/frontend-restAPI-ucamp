@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
-import InputForm from "../components/core/formInput";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
+
+import InputForm from "../components/core/formInput";
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const userCtx = useContext(UserContext);
   const { registerUser, formData } = userCtx;
 
@@ -10,6 +13,7 @@ const SignIn = () => {
     event.preventDefault();
     if (registerUser(formData)) {
       alert("Sign In successful");
+      navigate("/profile");
     }
     return;
   };

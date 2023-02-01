@@ -20,11 +20,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/guitars" element={<Guitars />} />
-          <Route element={<PrivateRoute />}>
-            <Route path="/paypal" element={<Paypal />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/guitar/:id" element={<Guitars />} />
-          </Route>
+          {/* <Route element={<PrivateRoute />}> */}
+          <Route path="/paypal" element={<Paypal />} />
+          <Route path="/profile" element={<Profile />} />
+          {/* </Route> */}
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
