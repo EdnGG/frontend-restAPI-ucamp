@@ -61,19 +61,41 @@ export const UserProvider = ({ children }) => {
   };
 
   const loginUser = async (dataForm, navigate) => {
-    // debugger;
-    // const navigate = useNavigate();
     try {
-      console.log(`DataForm: ${dataForm}`);
-      await clientAxios.post("/user/login", dataForm).then((response) => {
-        localStorage.setItem("token", response.data.token);
-        setAuthStatus(true);
-        navigate("/profile");
-      });
-      // console.log(res.data);
+      await clientAxios
+        .post("/user/login", dataForm)
+        .then((response) => {
+          console.log("Response: ", response.data.token);
+          console.log(
+            "Antes de guardar el token: ",
+            localStorage.getItem("token")
+          );
+
+          localStorage.setItem("token", response.data.token);
+          console.log(
+            "Después de guardar el token: ",
+            localStorage.getItem("token")
+          );
+
+          setAuthStatus(true);
+          navigate("/profile");
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
     } catch (err) {
       console.log(err.message);
     }
+
+    // try {
+    //   const response = await clientAxios.post("/user/login", dataForm);
+    //   console.log("loginUser: ", response.data.token);
+    //   localStorage.setItem("token", response.data.token);
+    //   setAuthStatus(true);
+    //   navigate("/profile");
+    // } catch (err) {
+    //   console.log(err.message);
+    // }
   };
 
   const logout = () => {
