@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/core/Card";
+import clientAxios from "../components/config/axios";
 
 const Guitars = () => {
+  const [guitars, setGuitars] = useState([]);
+
+  const getGuitars = async () => {
+    const res = await clientAxios.get("/guitars");
+    setGuitars(res.data["data"]);
+  };
+
+  useEffect(() => {
+    console.log("Guitars page loaded");
+    getGuitars();
+  }, []);
+
   return (
     <>
       <div>
@@ -9,42 +22,15 @@ const Guitars = () => {
       </div>
       <div className="container-fluid">
         <div className="d-flex flex-wrap p-2 justify-content-center align-items-center">
-          <Card
-            image="https://picsum.photos/id/30/200/300"
-            title="Guitar 1"
-            description="Description 1"
-            className="p-4 m-4 bl-light"
-          />
-          <Card
-            image="https://picsum.photos/id/40/200/300"
-            title="Guitar 2"
-            description="Description 2"
-            className="p-4 m-4 bl-light"
-          />
-          <Card
-            image="https://picsum.photos/id/50/200/300"
-            title="Guitar 3"
-            description="Description 3"
-            className="p-4 m-4 bl-light"
-          />
-          <Card
-            image="https://picsum.photos/id/60/200/300"
-            title="Guitar 4"
-            description="Description 4"
-            className="p-4 m-4 bl-light"
-          />
-          <Card
-            image="https://picsum.photos/id/70/200/300"
-            title="Guitar 5"
-            description="Description 5"
-            className="p-4 m-4 bl-light"
-          />
-          <Card
-            image="https://picsum.photos/id/80/200/300"
-            title="Guitar 6"
-            description="Description 6"
-            className="p-4 m-4 bl-light"
-          />
+          {guitars.map((guitar, index) => (
+            <Card
+              key={index}
+              image={guitar.image}
+              title={guitar.brand + " " + guitar.name}
+              description={guitar.color + " - " + guitar.price}
+              className="p-4 m-4 bl-light"
+            />
+          ))}
         </div>
       </div>
     </>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faTwitter,
@@ -12,29 +13,29 @@ import {
 const Footer = () => {
   return (
     <footer
-      className="d-flex flex-column bg-black py-5 my-5 justify-content-center align-items-center"
-      style={{ height: "40vh", width: "100vh%" }}
+      className="d-flex flex-column bg-black py-4 my-4 justify-content-center align-items-center"
+      style={{ height: "30vh", width: "100%" }}
     >
-      <div className="d-flex justify-content-center align-items-center">
-        <h4>
+      <div className="d-flex justify-content-center align-items-center py-3 my-3">
+        <h2 className="fs-1 fw-bold font-monospace text-white">
           Follow me!!{" "}
           <span role="img" aria-label="emoji">
             📱
           </span>
-        </h4>
+        </h2>
       </div>
       <div className="d-flex justify-content-center align-items-center">
         <a href="https://www.facebook.com/liledn.mexikn/" target="_blank">
           <FontAwesomeIcon
             icon={faFacebook}
-            size="4x"
+            size="2x"
             className="mx-3 text-white"
           />
         </a>
-        <a href="https://twitter.com/?lang=es" target="_blank">
+        <a href="https://node-portfolio.onrender.com/" target="_blank">
           <FontAwesomeIcon
-            icon={faTwitter}
-            size="4x"
+            icon={faBriefcase}
+            size="2x"
             className="mx-3 text-white"
           />
         </a>
@@ -44,20 +45,20 @@ const Footer = () => {
         >
           <FontAwesomeIcon
             icon={faLinkedin}
-            size="4x"
+            size="2x"
             className="mx-3 text-white"
           />
         </a>
         <a href="https://github.com/EdnGG" target="_blank">
           <FontAwesomeIcon
             icon={faGithub}
-            size="4x"
+            size="2x"
             className="mx-3 text-white"
           />
         </a>
       </div>
-      <div className="mt-8">
-        <p className="text-center text-base leading-6 text-gray-400">
+      <div className="my-3 py-3">
+        <p className="text-center text-base leading-6 text-white">
           &copy; 2023{" "}
           <Link
             href="/"

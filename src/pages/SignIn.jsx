@@ -11,43 +11,43 @@ const SignIn = () => {
 
   const sendData = (event) => {
     event.preventDefault();
-    if (registerUser(formData)) {
-      alert("Sign In successful");
-      navigate("/profile");
-    }
-    return;
+    registerUser(formData, navigate);
   };
 
   return (
-    <div className="container pt-3 mt-3 w-20">
-      <div className="pt-3 mt-3 w-20">
-        <h1>Sign In</h1>
+    <div
+      className="container my-5 justify-content-center align-items-center"
+      style={{
+        height: "80vh",
+        width: "30%",
+      }}
+    >
+      <div className="py-3 my-3">
+        <h1 className="fw-bold">Sign in</h1>
       </div>
 
       <form
-        onSubmit={(e) => sendData(e)}
-        className="py-3 my-3 px-3 mx-3 w-20 border border-2"
+        onSubmit={sendData}
+        className="py-3 my-3 px-3 mx-3 w-20 shadow-lg rounded-lg"
+        style={{
+          backgroundColor: "#DCDCDC",
+          height: "60vh",
+          borderRadius: "20px",
+        }}
       >
-        <div className="row mb-3">
+        <div className="row mt-4 pt-4 form-group">
           <InputForm tipo="name" />
         </div>
-        <div className="row mb-3">
+
+        <div className="row mt-4 pt-4 form-group">
           <InputForm tipo="email" />
         </div>
-        <div className="row mb-3">
+
+        <div className="row mt-4 pt-4 form-group">
           <InputForm tipo="password" />
         </div>
 
-        {/* --OPCIONAL-- }
-  <div className="row mb-3">
-    <label for="inputConfirm" className="col-sm-2 col-form-label">Confirm Password</label>
-    <div className="col-sm-10">
-      <input type="password" className="form-control" id="inputConfirm" name="confirmPassword"/>
-    </div>
-  </div> 
-  */}
-
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary my-5">
           Sign in
         </button>
       </form>
