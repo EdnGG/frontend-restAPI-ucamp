@@ -16,8 +16,7 @@ root.render(
       <BrowserRouter>
         <PayPalScriptProvider
           option={{
-            "client-id":
-              "ATHG8DL9cX_diKvSXEwxxlnOQkHa2-RmgddOP6vvt7SqUthjKxaidpw8gNcUyTeHXT_rYOdJRT0-fIa0 `",
+            "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID,
           }}
         >
           <App />
