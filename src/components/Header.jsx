@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { Navbar, Nav } from "react-bootstrap";
 
 function Header() {
   const ctx = useContext(UserContext);
@@ -8,68 +9,41 @@ function Header() {
   const { logout, authStatus } = ctx;
 
   return (
-    <div className="container-fluid">
-      <nav className="navbar navbar-expand-lg bg-light ">
-        {/* image, title and subtitle */}
-        <div className="d-flex px-3 py-3 justify-content-start justify-content-sm-around align-items-center">
-          <img
-            src="https://picsum.photos/100/100?grayscale"
-            className="rounded"
-            alt="Brand new guitar"
-          />
-          <Link className="px-2 navbar-brand" to="/">
-            GUITARWORLD
-          </Link>
-          <Link className="px-2 navbar-brand nav-link" to="/guitars">
+    <Navbar bg="light" expand="lg">
+      <Link className="px-2 navbar-brand" to="/">
+        GUITARWORLD
+      </Link>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Link className="nav-link p-3" to="/guitars">
             Catalog
           </Link>
-        </div>
-
-        <div className="container">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div
-            className="collapse navbar-collapse justify-content-end"
-            id="navbarNavAltMarkup"
-          >
-            {authStatus ? (
-              <>
-                <Link className="nav-link p-3" to="/profile">
-                  {" "}
-                  Profile{" "}
-                </Link>
-                <Link className="nav-link p-3" to="/" onClick={logout}>
-                  {" "}
-                  Logout
-                </Link>
-                <Link className="nav-link p-3" to="/paypal">
-                  CheckOut
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link className="nav-link p-3" to="/signin">
-                  Sign In
-                </Link>
-                <Link className="nav-link p-3" to="/login">
-                  Login
-                </Link>
-              </>
-            )}
-          </div>
-        </div>
-      </nav>
-    </div>
+        </Nav>
+        {authStatus ? (
+          <Nav>
+            <Link className="nav-link p-3" to="/profile">
+              Profile
+            </Link>
+            <Link className="nav-link p-3" to="/" onClick={logout}>
+              Logout
+            </Link>
+            <Link className="nav-link p-3" to="/paypal">
+              CheckOut
+            </Link>
+          </Nav>
+        ) : (
+          <Nav>
+            <Link className="nav-link p-3" to="/signin">
+              Sign In
+            </Link>
+            <Link className="nav-link p-3" to="/login">
+              Login
+            </Link>
+          </Nav>
+        )}
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
 

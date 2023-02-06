@@ -21,13 +21,9 @@ export const UserProvider = ({ children }) => {
     password: "",
   });
 
-  const [selectedObjects, setSelectedObjects] = useState([]);
-  const [check, setCheck] = useState({});
-
-  // const [loginData, setLoginData] = useState({
-  //   email: "",
-  //   password: "",
-  // });
+  const [selectedObjects, setSelectedObjects] = useState(
+    JSON.parse(localStorage.getItem("list")) || []
+  );
 
   const handleChange = (e) => {
     setFormData({
@@ -36,21 +32,96 @@ export const UserProvider = ({ children }) => {
     });
   };
 
-  // setSelectedObject = (object) => {
-  //   this.setState({ selectedObject: object });
+  // const handleCheckboxes = (e, props) => {
+  //   const checked = e.target.checked;
+  //   if (checked) {
+  //     setSelectedObjects([...selectedObjects, props]);
+  //   } else {
+  //     setSelectedObjects(
+  //       selectedObjects.filter((selectedObjects) => selectedObjects !== props)
+  //     );
+  //   }
+  //   if (selectedObjects.length === 0) {
+  //     localStorage.removeItem("list");
+  //   } else {
+  //     const id = props.id ? props.id : Date.now();
+  //     localStorage.setItem(`list-${id}`, JSON.stringify(selectedObjects));
+  //   }
   // };
 
-  const handleCheckboxes = (e) => {
+  const handleCheckboxes = (e, props) => {
     const checked = e.target.checked;
     if (checked) {
       setSelectedObjects([...selectedObjects, props]);
     } else {
       setSelectedObjects(
-        selectedObjects.filter((selectedObjects) => selectedObjects !== props)
+        selectedObjects.filter((selectedObject) => selectedObject !== props)
       );
     }
     localStorage.setItem("list", JSON.stringify(selectedObjects));
   };
+
+  // const handleCheckboxes = (e, props) => {
+  //   const checked = e.target.checked;
+  //   if (checked) {
+  //     setSelectedObjects([...selectedObjects, props]);
+  //   } else {
+  //     setSelectedObjects(
+  //       selectedObjects.filter((selectedObjects) => selectedObjects !== props)
+  //     );
+  //   }
+  //   if (selectedObjects.length === 0) {
+  //     localStorage.removeItem("list");
+  //   } else {
+  //     localStorage.setItem(`list-${props.id}`, JSON.stringify(selectedObjects));
+  //   }
+  // };
+
+  // const handleCheckboxes = (e, props) => {
+  //   const checked = e.target.checked;
+  //   if (checked) {
+  //     setSelectedObjects([...selectedObjects, props]);
+  //   } else {
+  //     setSelectedObjects(
+  //       selectedObjects.filter(
+  //         (selectedObject) => selectedObject.title !== props.title
+  //       )
+  //     );
+  //   }
+  //   if (selectedObjects.length === 0) {
+  //     localStorage.removeItem("list");
+  //   } else {
+  //     localStorage.setItem("list", JSON.stringify(selectedObjects));
+  //   }
+  // };
+
+  // const handleCheckboxes = (e, props) => {
+  //   const checked = e.target.checked;
+  //   if (checked) {
+  //     setSelectedObjects([...selectedObjects, props]);
+  //   } else {
+  //     setSelectedObjects(
+  //       selectedObjects.filter(
+  //         (selectedObject) => selectedObject.title !== props.title
+  //       )
+  //     );
+  //   }
+  //   localStorage.setItem("list", JSON.stringify(selectedObjects));
+  // };
+
+  // const handleCheckboxes = (e, props) => {
+  //   const checked = e.target.checked;
+  //   if (checked) {
+  //     setSelectedObjects([...selectedObjects, props]);
+  //   } else {
+  //     setSelectedObjects(
+  //       selectedObjects.filter(
+  //         (selectedObject) => selectedObject.id !== props.id
+  //       )
+  //     );
+  //   }
+  //   localStorage.setItem("list", JSON.stringify(selectedObjects));
+  // };
 
   const verifyingToken = async () => {
     const token = localStorage.getItem("token");

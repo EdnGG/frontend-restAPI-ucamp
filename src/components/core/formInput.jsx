@@ -12,16 +12,16 @@ const formInput = ({ tipo }) => {
     password: { title: "Password", type: "password", placeholder: "Password" },
   };
   return (
-    <>
-      <label htmlFor="{tipo}">{options[tipo].title}</label>
-      <div>
+    <div className="form-group d-flex flex-column justify-content-center align-items-center">
+      <label htmlFor={tipo}>{options[tipo].title}</label>
+      <div className="form-group d-flex flex-column justify-content-center align-items-center">
         <input
-          className="shadow-sm rounded-lg bg-white p-2"
+          className="form-control shadow-sm rounded-lg bg-white p-2 my-2"
           style={{
             borderRadius: "20px",
             border: "1px solid gray",
-            width: "40%",
-            maxWidth: "400px",
+            width: "100%",
+            maxWidth: "100%",
           }}
           id={tipo}
           name={tipo}
@@ -31,7 +31,7 @@ const formInput = ({ tipo }) => {
           onChange={(e) => handleChange(e)}
         />
       </div>
-    </>
+    </div>
   );
 };
 
