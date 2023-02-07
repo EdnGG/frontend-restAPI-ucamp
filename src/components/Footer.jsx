@@ -14,10 +14,10 @@ const Footer = () => {
   return (
     <footer
       className="d-flex flex-column bg-black py-4 my-4 justify-content-center align-items-center"
-      style={{ height: "30vh", width: "100%" }}
+      style={{ height: "40vh", width: "100%" }}
     >
       <div className="d-flex justify-content-center align-items-center py-3 my-3">
-        <h2 className="fs-1 fw-bold font-monospace text-white">
+        <h2 className="fs-1 fw-bold font-monospace text-white py-3 my-3">
           Follow me!!{" "}
           <span role="img" aria-label="emoji">
             📱

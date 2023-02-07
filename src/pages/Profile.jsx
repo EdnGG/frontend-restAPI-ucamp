@@ -7,7 +7,10 @@ const Profile = () => {
   // const { userEmail } = useContext(UserContext);
   // console.log(userEmail);
   return (
-    <div className="container py-5">
+    <div
+      className="container-fluid py-5"
+      style={{ height: "100vh", width: "100vw" }}
+    >
       <div className="row justify-content-center">
         <div className="col-12 col-sm-6 col-md-4">
           <img
@@ -15,7 +18,7 @@ const Profile = () => {
             className="rounded img-fluid mb-3"
             alt="Profile"
           />
-          <div className="card mt-3">
+          <div className="">
             {/* <div className="card-body">
               <h3 className="card-title">{user.usuario.name}</h3>
               <p className="card-text">{user.usuario.email}</p>
