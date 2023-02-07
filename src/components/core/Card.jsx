@@ -14,8 +14,12 @@ const Card = (props) => {
         style={{ width: "100%" }}
       />
       <div className="card-body">
-        <h5 className="card-title">{props.title}</h5>
-        <p className="card-text">{props.description}</p>
+        <h5 className="card-title">
+          {props.brand} {props.name}
+        </h5>
+        <p className="card-text">
+          {props.color} {props.price}
+        </p>
 
         <div className="form-check form-switch">
           <input

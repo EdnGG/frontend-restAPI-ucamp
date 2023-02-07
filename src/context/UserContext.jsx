@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import clientAxios from "../components/config/axios.js";
 // import { useNavigate } from "react-router-dom";
 
@@ -8,10 +8,9 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState({
-    name: "eden",
-    email: "gresseden@gmail.com",
+    name: null,
+    email: null,
   });
-  // const [userName, setUserName] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
   const [authStatus, setAuthStatus] = useState(false);
 
@@ -32,96 +31,28 @@ export const UserProvider = ({ children }) => {
     });
   };
 
-  // const handleCheckboxes = (e, props) => {
-  //   const checked = e.target.checked;
-  //   if (checked) {
-  //     setSelectedObjects([...selectedObjects, props]);
-  //   } else {
-  //     setSelectedObjects(
-  //       selectedObjects.filter((selectedObjects) => selectedObjects !== props)
-  //     );
-  //   }
-  //   if (selectedObjects.length === 0) {
-  //     localStorage.removeItem("list");
-  //   } else {
-  //     const id = props.id ? props.id : Date.now();
-  //     localStorage.setItem(`list-${id}`, JSON.stringify(selectedObjects));
-  //   }
-  // };
-
+  /* */
   const handleCheckboxes = (e, props) => {
     const checked = e.target.checked;
-    if (checked) {
-      setSelectedObjects([...selectedObjects, props]);
-    } else {
-      setSelectedObjects(
-        selectedObjects.filter((selectedObject) => selectedObject !== props)
-      );
-    }
-    localStorage.setItem("list", JSON.stringify(selectedObjects));
+    console.log("checked: ", checked);
+    setSelectedObjects(
+      checked
+        ? [...selectedObjects, props]
+        : selectedObjects.filter(
+            (selectedObject) => selectedObject.name !== props.name
+          )
+    );
   };
 
-  // const handleCheckboxes = (e, props) => {
-  //   const checked = e.target.checked;
-  //   if (checked) {
-  //     setSelectedObjects([...selectedObjects, props]);
-  //   } else {
-  //     setSelectedObjects(
-  //       selectedObjects.filter((selectedObjects) => selectedObjects !== props)
-  //     );
-  //   }
-  //   if (selectedObjects.length === 0) {
-  //     localStorage.removeItem("list");
-  //   } else {
-  //     localStorage.setItem(`list-${props.id}`, JSON.stringify(selectedObjects));
-  //   }
-  // };
+  useEffect(() => {
+    if (selectedObjects.length === 0) {
+      localStorage.removeItem("list");
+    } else {
+      localStorage.setItem("list", JSON.stringify(selectedObjects));
+    }
+  }, [selectedObjects]);
 
-  // const handleCheckboxes = (e, props) => {
-  //   const checked = e.target.checked;
-  //   if (checked) {
-  //     setSelectedObjects([...selectedObjects, props]);
-  //   } else {
-  //     setSelectedObjects(
-  //       selectedObjects.filter(
-  //         (selectedObject) => selectedObject.title !== props.title
-  //       )
-  //     );
-  //   }
-  //   if (selectedObjects.length === 0) {
-  //     localStorage.removeItem("list");
-  //   } else {
-  //     localStorage.setItem("list", JSON.stringify(selectedObjects));
-  //   }
-  // };
-
-  // const handleCheckboxes = (e, props) => {
-  //   const checked = e.target.checked;
-  //   if (checked) {
-  //     setSelectedObjects([...selectedObjects, props]);
-  //   } else {
-  //     setSelectedObjects(
-  //       selectedObjects.filter(
-  //         (selectedObject) => selectedObject.title !== props.title
-  //       )
-  //     );
-  //   }
-  //   localStorage.setItem("list", JSON.stringify(selectedObjects));
-  // };
-
-  // const handleCheckboxes = (e, props) => {
-  //   const checked = e.target.checked;
-  //   if (checked) {
-  //     setSelectedObjects([...selectedObjects, props]);
-  //   } else {
-  //     setSelectedObjects(
-  //       selectedObjects.filter(
-  //         (selectedObject) => selectedObject.id !== props.id
-  //       )
-  //     );
-  //   }
-  //   localStorage.setItem("list", JSON.stringify(selectedObjects));
-  // };
+  /* */
 
   const verifyingToken = async () => {
     const token = localStorage.getItem("token");

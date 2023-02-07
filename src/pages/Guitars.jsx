@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+// import { UserContext } from "../context/UserContext";
 import Card from "../components/core/Card";
 import clientAxios from "../components/config/axios";
 
 const Guitars = () => {
+  // const { selectedObjects, setSelectedObjects } = useContext(UserContext);
+  // console.log("selectedObjects: ", selectedObjects);
+  // console.log("setSelectedObjects: ", setSelectedObjects);
+
   const [guitars, setGuitars] = useState([]);
 
   const getGuitars = async () => {
     const res = await clientAxios.get("/guitars");
+    console.log('res.data["data"]: ', res.data["data"]);
     setGuitars(res.data["data"]);
-    console.log(guitars);
   };
 
   useEffect(() => {
     console.log("Guitars page loaded");
     getGuitars();
-    console.log(guitars);
   }, []);
 
   return (
@@ -25,14 +29,16 @@ const Guitars = () => {
       <div className="container-fluid">
         <div className="d-flex flex-wrap p-2 justify-content-center align-items-center">
           {guitars.map((guitar, index) => (
-            <div className="col-md-4 col-sm-6 mb-4 py-2 my-2 px-2 mx-2">
+            <div
+              key={guitars._id || index}
+              className="col-md-4 col-sm-6 mb-4 py-2 my-2 px-2 mx-2"
+            >
               <Card
-                key={index}
                 image={guitar.image}
-                title={
-                  guitar.brand.toUpperCase() + " " + guitar.name.toUpperCase()
-                }
-                description={guitar.color.toUpperCase() + " - $" + guitar.price}
+                brand={guitar.brand.toUpperCase()}
+                name={guitar.name.toUpperCase()}
+                color={guitar.color.toUpperCase()}
+                price={"$" + guitar.price}
                 className="py-2 my-2 px-2 mx-2"
               />
             </div>
