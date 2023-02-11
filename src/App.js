@@ -12,7 +12,7 @@ import Guitars from "./pages/Guitars";
 import Profile from "./pages/Profile";
 import Success from "./pages/Success";
 import PayPal from "./pages/PayPal";
-// import PrivateRoute from "./components/auth/PrivateRoute";
+import PrivateRoute from "./components/auth/PrivateRoute";
 
 function App() {
   // const [user, setUser] = useState(null);
@@ -32,13 +32,13 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/guitars" element={<Guitars />} />
-          {/* <Route element={<PrivateRoute />}> */}
-          {/* <UserContext.Provider value={{ user, setUser }}> */}
-          <Route path="/paypal" element={<PayPal />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/success" element={<Success />} />
-          {/* </UserContext.Provider> */}
-          {/* </Route> */}
+          <Route element={<PrivateRoute />}>
+            {/* <UserContext.Provider value={{ user, setUser }}> */}
+            <Route path="/paypal" element={<PayPal />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/success" element={<Success />} />
+            {/* </UserContext.Provider> */}
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

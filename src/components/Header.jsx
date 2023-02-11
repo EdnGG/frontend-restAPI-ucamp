@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+// import { } from "@fortawesome/free-brands-svg-icons";
 import { UserContext } from "../context/UserContext";
 import { Navbar, Nav } from "react-bootstrap";
 
@@ -25,12 +28,21 @@ function Header() {
             <Link className="nav-link p-3" to="/profile">
               Profile
             </Link>
-            <Link className="nav-link p-3" to="/" onClick={logout}>
-              Logout
-            </Link>
-            <Link className="nav-link p-3" to="/paypal">
-              CheckOut
-            </Link>
+            <Nav
+              className="nav-icons d-flex justify-content-end"
+              // style={{ padding: "0 60vw" }}
+            >
+              <Link className="nav-link p-3" to="/paypal">
+                <FontAwesomeIcon
+                  icon={faShoppingCart}
+                  size="1x"
+                  className="mx-3 text-black"
+                />
+              </Link>
+              <Link className="nav-link p-3" to="/" onClick={logout}>
+                Logout
+              </Link>
+            </Nav>
           </Nav>
         ) : (
           <Nav>

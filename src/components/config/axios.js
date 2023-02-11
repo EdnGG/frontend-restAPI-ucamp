@@ -8,8 +8,8 @@ import axios from "axios";
 // });
 
 const clientAxios = axios.create({
-  // baseURL: "http://localhost:3000",
-  baseURL: process.env.REACT_APP_CLOUD_URL_RENDER,
+  baseURL: "http://localhost:3000",
+  // baseURL: process.env.REACT_APP_CLOUD_URL_RENDER,
 });
 
 export default clientAxios;

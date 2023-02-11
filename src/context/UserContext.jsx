@@ -56,20 +56,29 @@ export const UserProvider = ({ children }) => {
 
   const verifyingToken = async () => {
     const token = localStorage.getItem("token");
+    // const token2 = JSON.stringify(localStorage.getItem("token") || "");
+    // console.log("Token 2", token2);
+    // token llega como [object Object]
+    console.log("token from verifyingToken: ", token);
     if (token) {
+      console.log("token true from verifyingToken: ", token);
+      // Asignamos el token a la cabecera de la petición
       clientAxios.defaults.headers.common["x-auth-token"] = token;
     } else {
+      // Si no hay token, se elimina la cabecera de la petición
       delete clientAxios.defaults.headers.common["x-auth-token"];
     }
     try {
       // Crear esta ruta en el backend para verificar el token
       const res = token && (await clientAxios.get("/user/verify"));
-      // debugger;
-      // localStorage.setItem("token", res)
-      // setUser(res.data);
+      console.log("res from verifyingToken: ", res);
+      // localStorage.setItem("token", res);
+      // Tenemos data del usuario si el token es válido
+      setUser(res.data);
+      // Si el token es válido, se cambia el estado de authStatus a true
       setAuthStatus(true);
     } catch (err) {
-      console.log(err.message);
+      console.log("Error on verifying token: ", err.message);
     }
   };
 
